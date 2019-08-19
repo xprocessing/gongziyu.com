@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>撸起袖子就是干</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="To-Do.css"/>
+<meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1; user-scalable=no;">
+</head>
+
+<body>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+	  	url: 'new-To-Do.xml',
+	  	dataType: 'xml',
+	  	success: function(data){
+		  console.log(data);
+		 	$(data).find("To-Do-Lists-ALL").find("To-Do-List").each(function(index, ele) {
+				
+				var ToDoBig = $(ele).find("To-Do-Big").text();				
+				
+				$(".To-Do-Lists-ALL").append(' <div class="To-Do-List"><div class="To-Do-Big">'+ToDoBig+'</div><div class="To-Do-small"><ul></ul></div></div>');
+			
+					//each list;	
+					
+					$(ele).find("To-Do-small").find("To-Do-small-li").each(function(index, ele2) {
+					
+						var ToDosmallli = $(ele2).text();	
+						if($(ele2).attr("isfinish")=="true"){
+					$(".To-Do-Lists-ALL .To-Do-small ul").eq($(ele).index()).append('<li><input type="checkbox" checked="checked">'+ToDosmallli+'</li>');
+						}
+						else
+						{
+					$(".To-Do-Lists-ALL .To-Do-small ul").eq($(ele).index()).append('<li><input type="checkbox">'+ToDosmallli+'</li>');	
+							}
+				
+			});
+					//each list;
+				
+			});
+			
+		}
+	});
+}) 
+</script>
+<div class="To-Do-Lists-ALL"> </div>
+</body>
+</html>
