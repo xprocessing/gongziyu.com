@@ -42,7 +42,7 @@
 						<img src="assets/map.png" />
 					</a>
 				</div>
-				<div class="projectName">创造​​​​</div>
+				<div class="projectName">创作​​​​</div>
 			</li>
 
 
