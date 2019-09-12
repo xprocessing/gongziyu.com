@@ -4,13 +4,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>一个人要像一支队伍</title>
-	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 
 	<link rel="stylesheet" href="To-Do.css"/>
 	<meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1; user-scalable=no;">
 	<link rel="apple-touch-icon" href="neo.png"/>
-	<link href="neo100.jpg" rel="shortcut icon"/>
-	<link href="neo100.jpg" rel="Bookmark"/> 
+	<link href="neo.png" rel="shortcut icon"/>
+	<link href="neo.png" rel="Bookmark"/> 
 </head>
 
 <body>
