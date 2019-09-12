@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" href="To-Do.css"/>
 	<meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1; user-scalable=no;">
-	<link rel="apple-touch-icon" href="neo100.jpg"/>
+	<link rel="apple-touch-icon" href="neo.png"/>
 	<link href="neo100.jpg" rel="shortcut icon"/>
 	<link href="neo100.jpg" rel="Bookmark"/> 
 </head>

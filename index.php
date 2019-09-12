@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>公子鱼实验室</title>
+	<title>公子鱼科技-实验室</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="share/default.css">
 	<link href="shortcut.png" rel="apple-touch-icon-precomposed">
