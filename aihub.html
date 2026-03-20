@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI开发工具</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui;
+            line-height: 1.4;
+            background: #f3f4f6;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin: 1.5rem 0;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .link-list {
+            list-style: none;
+        }
+
+        .link-item {
+            margin: 0.5rem 0;
+        }
+
+        .link-item a {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem;
+            border-radius: 8px;
+            color: #1f2937;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .link-item a:hover {
+            background: #f1f5f9;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI开发导航中心：<a href="https://www.aihub.cn/" target="_blank">AIHub发现</a></h1>
+        
+        <div class="grid">
+              <!-- 智能IDE -->
+            <div class="category-card">
+                <h2>智能IDE</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="https://copilot.tencent.com/" target="_blank">腾讯CodeBuddy</a></li>
+                    <li class="link-item"><a href="https://www.trae.com.cn/" target="_blank">字节trae</a></li>
+                    <li class="link-item"><a href="https://lingma.aliyun.com/lingma" target="_blank">通义灵码IDE</a></li>
+                   
+                     
+                   
+                </ul>
+            </div>
+              <!-- 我的工具 -->
+            <div class="category-card">
+                <h2>我的开发</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="http://82.156.157.118:8888/tencentcloud" target="_blank">腾讯云-宝塔面板</a></li>                    
+                    <li class="link-item"><a href="https://github.com/dashboard" target="_blank">Github</a></li>
+                    <li class="link-item"><a href="https://console.cloud.tencent.com" target="_blank">腾讯云-控制台</a></li>
+                    <li class="link-item"><a href="https://docs.qq.com/sheet/DQWJOU1BYdFFRRmhE?no_promotion=1&tab=BB08J2" target="_blank">开发账户</a></li>
+                    <li class="link-item"><a href="https://tcb.cloud.tencent.com/dev?envId=neo-1gdd48oj02ed10cf#/overview" target="_blank">云开发</a></li>
+            
+                   
+                </ul>
+            </div>
+            <!-- 云服务资源 -->
+            <div class="category-card">
+                <h2>云服务资源</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="" target="_blank">腾讯云</a></li>
+                    <li class="link-item"><a href="" target="_blank">阿里云</a></li>
+                    <li class="link-item"><a href="https://www.volcengine.com/product/veRTC" target="_blank">火山云</a></li>
+                    <li class="link-item"><a href="" target="_blank">华为云</a></li>
+                    
+                           
+                </ul>
+            </div>
+            <!-- 设计资源 -->
+            <div class="category-card">
+                <h2>设计资源</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="https://www.figma.com/" target="_blank">figma在线原型</a></li>
+                    <li class="link-item"><a href="https://modao.cc/workspace/home/proto" target="_blank">墨刀在线原型</a></li>
+                     <li class="link-item"><a href="https://www.iconfont.cn/" target="_blank">icon图标资源</a></li>                    
+                    <li class="link-item"><a href="https://d.design/" target="_blank">阿里巴巴堆友</a></li>
+                    <li class="link-item"><a href="https://ps.gaoding.com/#/" target="_blank">在线ps</a></li>                   
+                </ul>
+            </div>
+              <!-- 巨头工具 -->
+            <div class="category-card">
+                <h2>AI巨头工具</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="https://yiyan.baidu.com/" target="_blank">百度文心一言</a></li>
+                     <li class="link-item"><a href="https://www.doubao.com/chat/" target="_blank">抖音豆包</a></li>
+                      <li class="link-item"><a href="https://yuanbao.tencent.com/chat/naQivTmsDa" target="_blank">腾讯元宝</a></li>
+                    <li class="link-item"><a href="https://www.tongyi.com/" target="_blank">阿里通义</a></li>
+                    <li class="link-item"><a href="https://x.com/i/grok" target="_blank">x-gork</a></li>
+                    
+                </ul>
+            </div>
+           
+            
+             
+              <!-- 模型训练 -->
+            <div class="category-card">
+                <h2>模型训练</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="https://www.modelscope.cn/home" target="_blank">魔塔社区</a></li>
+                    <li class="link-item"><a href="https://promptpilot.volcengine.com/startup" target="_blank">提示词生成</a></li>
+                    
+                     
+                   
+                </ul>
+            </div>
+            
+           
+           
+                  <!-- 智能体 -->
+            <div class="category-card">
+                <h2>智能体工作流</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="https://yuanqi.tencent.com/my-creation/agent" target="_blank">腾讯元器</a></li>
+                     <li class="link-item"><a href="https://www.coze.cn/" target="_blank">扣子</a></li>
+                     <li class="link-item"><a href="https://bailian.console.aliyun.com/" target="_blank">阿里云百炼</a></li>
+                      
+                    
+                </ul>
+            </div>
+            
+
+           
+           
+            
+            
+
+            <!-- 技术文档 -->
+            <div class="category-card">
+                <h2>开源项目</h2>
+                <ul class="link-list">
+                    <li class="link-item"><a href="https://gitee.com/explore/all?order=starred" target="_blank">gitee热门开源项目</a></li>
+                    <li class="link-item"><a href="https://developer.huawei.com/consumer/cn/develop/" target="_blank">鸿蒙开发</a></li>
+                    <li class="link-item"><a href="https://devdocs.io" target="_blank">DevDocs</a></li>
+                    <li class="link-item"><a href="https://vuejs.org" target="_blank">Vue.js 文档</a></li>
+
+                </ul>
+            </div>
+
+           
+            
+
+             <!-- 爬虫资源 -->
+            <div class="category-card">
+                <h2>爬虫相关</h2>
+                <ul class="link-list">
+                     <li class="link-item"><a href="https://www.selenium.dev/" target="_blank">selenium 自动化</a></li>
+                    
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

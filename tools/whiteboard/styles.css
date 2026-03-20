@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.toolbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+#sizeDisplay {
+  min-width: 45px;
+  text-align: center;
+}
+
+#whiteboard {
+  touch-action: none;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  vertical-align: middle;
+}
