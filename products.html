@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="产品中心 - 公子鱼AI实验室上市的软件产品">
+  <title>产品中心 - 公子鱼AI实验室</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .products-hero { padding: 160px 0 80px; background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.15) 0%, transparent 60%); text-align: center; }
+    .products-hero h1 { font-size: var(--font-5xl); font-weight: 700; margin-bottom: var(--space-4); }
+    .products-hero p { font-size: var(--font-xl); color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .products-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-6); }
+    @media (max-width: 1400px) { .products-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 1100px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 800px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .products-grid { grid-template-columns: 1fr; } }
+    .product-card { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); display: flex; flex-direction: column; }
+    .product-card:hover { border-color: var(--primary); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0, 212, 255, 0.2); }
+    .product-image { aspect-ratio: 1; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1)); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .product-image a {width:100%;height:100%;display: flex; align-items: center; justify-content: center;  }
+    .product-image img { width: 85%; height: 85%;margin:0 auto; object-fit: cover; transition: transform var(--transition-base); }
+    .product-card:hover .product-image img { transform: scale(1.05); }
+    .product-image-placeholder { width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: var(--radius-2xl); display: flex; align-items: center; justify-content: center; transition: all var(--transition-base); }
+    .product-card:hover .product-image-placeholder { transform: scale(1.1) rotate(5deg); }
+    .product-image-placeholder svg { width: 40px; height: 40px; stroke: white; }
+    .product-badge { position: absolute; top: var(--space-3); right: var(--space-3); padding: var(--space-1) var(--space-3); background: linear-gradient(135deg, #22C55E, #16A34A); border-radius: var(--radius-md); font-size: var(--font-xs); font-weight: 600; color: white; }
+    .product-badge.new { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+    .product-badge.hot { background: linear-gradient(135deg, #EF4444, #DC2626); }
+    .product-content { padding: var(--space-5); flex: 1; display: flex; flex-direction: column; }
+    .product-category { display: inline-block; padding: var(--space-1) var(--space-2); background: var(--bg-secondary); border-radius: var(--radius-sm); font-size: var(--font-xs); color: var(--text-tertiary); margin-bottom: var(--space-2); width: fit-content; }
+    .product-name { padding-left:5%; font-size: var(--font-lg); font-weight: 600; margin-bottom: var(--space-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .product-desc {padding-left:5%; font-size: var(--font-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-4); flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    .filter-section { padding: var(--space-8) 0; border-bottom: 1px solid var(--border); margin-bottom: var(--space-12); }
+    .filter-tabs { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+    .filter-tab { padding: var(--space-3) var(--space-6); background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-xl); color: var(--text-secondary); font-size: var(--font-sm); font-weight: 500; cursor: pointer; transition: all var(--transition-base); }
+    .filter-tab:hover { border-color: var(--primary); color: var(--text-primary); }
+    .filter-tab.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); border-color: transparent; color: white; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/shortcut.png" alt="公子鱼AI实验室">
+        <span class="logo-text">公子鱼<span>AI实验室</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">首页</a></li>
+        <li><a href="about.html" class="nav-link">关于</a></li>
+        <li><a href="projects.html" class="nav-link">项目</a></li>
+        <li><a href="products.html" class="nav-link active">产品</a></li>
+        <li><a href="aihub.html" class="nav-link">AIHub</a></li>
+        <li><a href="https://docs.gongziyu.com/" class="nav-link" target="_blank">文档</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="products-hero">
+    <div class="container">
+      <h1>产品中心</h1>
+      <p>精心打造的软件产品，为用户提供优质体验</p>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="products-grid">
+        <div class="product-card" data-category="app">
+          <div class="product-image">
+            <a href="http://fangche.niurouzhou.com/" target="_blank"><img src="assets/fangche.png" alt="房车"></a>
+            <span class="product-badge hot">热门</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">SAAS应用</span>
+            <h3 class="product-name">房车租售</h3>
+            <p class="product-desc">房车租售平台，共创社区</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="web">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <span class="product-badge new">新品</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Web应用</span>
+            <h3 class="product-name">智能写作平台</h3>
+            <p class="product-desc">AI驱动的在线写作与内容创作平台</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="miniapp">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-category">小程序</span>
+            <h3 class="product-name">图片处理助手</h3>
+            <p class="product-desc">一键抠图、滤镜、美化功能</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="tool">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-category">工具软件</span>
+            <h3 class="product-name">代码生成器</h3>
+            <p class="product-desc">智能代码生成与优化工具</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="app">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-category">移动应用</span>
+            <h3 class="product-name">数据看板</h3>
+            <p class="product-desc">企业数据可视化与分析应用</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="web">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Web应用</span>
+            <h3 class="product-name">在线客服系统</h3>
+            <p class="product-desc">企业级智能客服解决方案</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="miniapp">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <span class="product-badge">热门</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">小程序</span>
+            <h3 class="product-name">AI头像生成</h3>
+            <p class="product-desc">智能生成个性化头像</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="tool">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-category">工具软件</span>
+            <h3 class="product-name">文档转换器</h3>
+            <p class="product-desc">多格式文档智能转换工具</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="app">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-category">移动应用</span>
+            <h3 class="product-name">日程管理</h3>
+            <p class="product-desc">智能日程规划与提醒助手</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="web">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Web应用</span>
+            <h3 class="product-name">数据报表系统</h3>
+            <p class="product-desc">自动化数据报表生成平台</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><img src="assets/shortcut.png" alt="公子鱼AI实验室"><span class="logo-text">公子鱼<span>AI实验室</span></span></a>
+          <p class="footer-desc">探索人工智能边界，打造创新AI应用</p>
+        </div>
+        <div class="footer-links">
+          <div><h4>快速导航</h4><ul><li><a href="index.html">首页</a></li><li><a href="about.html">关于</a></li><li><a href="projects.html">项目</a></li><li><a href="products.html">产品</a></li><li><a href="aihub.html">AIHub</a></li><li><a href="https://docs.gongziyu.com/" target="_blank">文档</a></li></ul></div>
+          <div><h4>联系方式</h4><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>neo@gongziyu.com</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>杭州市</li></ul></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 杭州公子鱼科技有限公司 版权所有 | 浙ICP备2021037366号-1</p></div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+  <script>
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const productCards = document.querySelectorAll('.product-card');
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        productCards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === 'all' || category === filter) {
+            card.style.display = '';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
