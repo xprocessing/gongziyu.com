@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="销冠AI助手 - 帮助销售团队分享客户、协同跟进、AI分析客户与自动生成沟通文案。">
+  <title>销冠AI助手</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    body { background: #f7f8fb; }
+    .page-hero { min-height: 640px; display: grid; align-items: center; background: linear-gradient(180deg, rgba(4, 8, 28, 0.8), rgba(4, 8, 28, 0.35) 45%, rgba(4, 8, 28, 0.85)); }
+    .page-hero .hero-inner { display: grid; gap: 30px; grid-template-columns: minmax(0, 1.05fr) 0.95fr; align-items: center; }
+    .page-hero h1 { font-size: clamp(3rem, 6vw, 4.4rem); line-height: 1.02; margin-bottom: 18px; color: #ffffff; }
+    .page-hero p { max-width: 560px; color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.8; margin-bottom: 24px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: rgba(255,255,255,0.14); color: #f8f8ff; font-weight: 700; margin-bottom: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); padding: 14px 18px; border-radius: 18px; color: rgba(255,255,255,0.92); font-size: 0.98rem; }
+    .hero-preview { position: relative; width: min(100%, 500px); margin: 0 auto; }
+    .hero-preview img { width: 100%; border-radius: 32px; box-shadow: 0 34px 100px rgba(1, 10, 40, 0.35); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+    .hero-actions a { display: inline-flex; align-items: center; justify-content: center; min-width: 160px; padding: 16px 24px; border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .hero-actions a.primary { background: #7c5dff; color: #fff; box-shadow: 0 18px 45px rgba(124, 93, 255, 0.28); }
+    .hero-actions a.secondary { background: rgba(255,255,255,0.18); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+    .hero-actions a:hover { transform: translateY(-2px); }
+    .page-section { padding: 48px 0; }
+    .page-section:nth-of-type(odd) { background: #fff; }
+    .section-grid { display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .feature-card { background: #f7f8fb; border: 1px solid rgba(105, 91, 255, 0.12); border-radius: 24px; padding: 24px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; }
+    .feature-card strong { font-size: 1rem; color: #332e82; margin-bottom: 10px; display: block; }
+    .feature-card p { color: #5f6371; line-height: 1.8; margin: 0; }
+    .screenshot-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .screenshot-grid img { width: 100%; border-radius: 24px; display: block; }
+    .download-card { display: grid; gap: 24px; grid-template-columns: 1.3fr 0.95fr; align-items: center; padding: 28px; border-radius: 28px; background: linear-gradient(180deg, rgba(72, 56, 255, 0.12), rgba(82, 185, 255, 0.08)); border: 1px solid rgba(72, 56, 255, 0.14); }
+    .download-card .download-info h2 { margin: 0 0 14px; font-size: 1.65rem; }
+    .download-card .download-info p { margin: 0; color: #424b6a; line-height: 1.8; }
+    .download-qr { display: grid; justify-items: center; gap: 16px; }
+    .download-qr img { width: 140px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.08); }
+    .download-qr small { color: #5f6371; }
+    .feature-list { display: grid; gap: 18px; }
+    .feature-list li { display: flex; gap: 14px; align-items: flex-start; color: #424b6a; line-height: 1.7; }
+    .feature-list li::before { content: '✓'; color: #5f3fe8; font-weight: 700; margin-top: 3px; }
+    .page-footer { padding: 36px 0 64px; text-align: center; color: #6c7284; font-size: 0.95rem; }
+    @media (max-width: 900px) {
+      .page-hero .hero-inner, .section-grid, .download-card { grid-template-columns: 1fr; }
+      .hero-meta { justify-content: start; }
+      .page-hero { padding-top: 100px; }
+    }
+    @media (max-width: 640px) {
+      .page-hero { padding: 100px 0 30px; }
+      .page-hero h1 { font-size: 2.4rem; }
+      .hero-preview { width: 100%; }
+      .hero-badge, .hero-meta span { width: 100%; justify-content: center; }
+      .feature-card { padding: 20px; }
+      .download-card { padding: 22px; }
+      .download-qr img { width: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../assets/shortcut.png" alt="公子鱼AI实验室">
+        <span class="logo-text">公子鱼<span>AI实验室</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">首页</a></li>
+        <li><a href="../about.html" class="nav-link">关于</a></li>
+        <li><a href="../products.html" class="nav-link active">产品</a></li>
+        <li><a href="../projects.html" class="nav-link">项目</a></li>
+        <li><a href="../aihub.html" class="nav-link">AIHub</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <div>
+          <span class="hero-badge"><img src="../assets/xiaoguanai/icon.png" alt="销冠AI助手图标" width="24" height="24">销冠AI助手</span>
+          <h1>大海报视觉，打造销冠销售协作中台</h1>
+          <p>销冠AI助手让主播与销售团队高效分享客户、协同跟进、AI分析客户与智能生成沟通文案，同时支持高阶定制，助力团队业绩升级。</p>
+          <div class="hero-actions">
+            <a href="assets/xiaoguanai/xiaoguanai.apk" class="primary" download>立即下载</a>
+            <a href="#features" class="secondary">查看功能</a>
+          </div>
+          <div class="hero-meta">
+            <span>客户共享</span>
+            <span>团队协同</span>
+            <span>AI分析</span>
+            <span>高阶定制</span>
+          </div>
+        </div>
+        <div class="hero-preview">
+        
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">核心功能</span>
+          <h2 class="section-title">四大能力，让销售协同更顺畅</h2>
+          <p class="section-subtitle">销冠AI助手覆盖客户分享、团队协作、AI分析与文案生产，支持移动端使用及高阶定制。</p>
+        </div>
+        <div class="section-grid">
+          <div class="feature-card">
+            <strong>客户快速分享</strong>
+            <p>主播与销售团队可一键分享客户资料，保持信息统一，不再遗漏重要客户线索。</p>
+          </div>
+          <div class="feature-card">
+            <strong>协同跟进机制</strong>
+            <p>销售与团队成员之间共享客户进度，协同安排跟进任务，团队沟通更高效。</p>
+          </div>
+          <div class="feature-card">
+            <strong>AI客户分析</strong>
+            <p>系统自动分析客户意向、需求与关键标签，帮助销售快速判断优先级与跟进策略。</p>
+          </div>
+          <div class="feature-card">
+            <strong>AI沟通文案</strong>
+            <p>基于客户背景与沟通记录，一键生成专业销售话术，节省准备时间，提高成交效率。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">产品展示</span>
+          <h2 class="section-title">真实界面，直观体验</h2>
+          <p class="section-subtitle">四张移动界面截图，展示客户列表、详细页与AI沟通能力的核心体验。</p>
+        </div>
+        <div class="screenshot-grid">
+          <img src="../assets/xiaoguanai/1.jpg" alt="客户列表界面">
+          <img src="../assets/xiaoguanai/2.jpg" alt="客户选择与共享界面">
+          <img src="../assets/xiaoguanai/3.jpg" alt="客户详情与协同跟进界面">
+          <img src="../assets/xiaoguanai/4.jpg" alt="AI文案生成界面">
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="download">
+      <div class="container">
+        <div class="download-card">
+          <div class="download-info">
+            <h2>立即下载，开启销冠级协同</h2>
+            <p>扫码下载APP，马上体验客户分享、团队协同、AI分析与高阶定制功能，让销售团队更敏捷、更专业。</p>
+          </div>
+          <div class="download-qr">
+            <img src="../assets/xiaoguanai/qr.png" alt="下载二维码">
+            <small>扫码下载销冠AI助手</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">定制优势</span>
+          <h2 class="section-title">AI高阶定制，让销冠更进一步</h2>
+          <p class="section-subtitle">为销售团队提供专属定制能力，支持客户标签、沟通风格、销售策略与专属分析模型的深度定制。</p>
+        </div>
+        <ul class="feature-list">
+          <li>专属AI模型配置：适配团队销售风格与行业需求。</li>
+          <li>客户标签定制：支持多维标签管理与优先级自动推荐。</li>
+          <li>沟通文案风格可控：匹配客户类型与营销场景。</li>
+          <li>快速升级能力：持续迭代，推动团队转化与效率提升。</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">销冠AI助手 · 专注客户协同与AI驱动销售效率</div>
+  </footer>
+</body>
+</html>
