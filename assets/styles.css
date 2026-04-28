@@ -408,7 +408,7 @@ ul {
   border-radius: var(--radius-xl);
   font-size: var(--font-sm);
   color: var(--primary);
-  margin-bottom: var(--space-4);
+  margin: var(--space-4);
 }
 
 .section-title {

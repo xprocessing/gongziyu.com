@@ -9,37 +9,36 @@
   <style>
     body { background: #f7f8fb; }
     .page-hero { min-height: 640px; display: grid; align-items: center; background: linear-gradient(180deg, rgba(4, 8, 28, 0.8), rgba(4, 8, 28, 0.35) 45%, rgba(4, 8, 28, 0.85)); }
-    .page-hero .hero-inner { display: grid; gap: 30px; grid-template-columns: minmax(0, 1.05fr) 0.95fr; align-items: center; }
+    .page-hero .hero-inner { display: grid; gap: 30px; justify-items: center; text-align: center; max-width: 960px; margin: 0 auto; }
     .page-hero h1 { font-size: clamp(3rem, 6vw, 4.4rem); line-height: 1.02; margin-bottom: 18px; color: #ffffff; }
-    .page-hero p { max-width: 560px; color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.8; margin-bottom: 24px; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: rgba(255,255,255,0.14); color: #f8f8ff; font-weight: 700; margin-bottom: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .page-hero p { max-width: 640px; color: rgba(255,255,255,0.92); font-size: 1.05rem; line-height: 1.8; margin: 0 auto 24px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: rgba(255,255,255,0.18); color: #ffffff; font-weight: 700; margin-bottom: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.24); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
     .hero-meta span { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); padding: 14px 18px; border-radius: 18px; color: rgba(255,255,255,0.92); font-size: 0.98rem; }
-    .hero-preview { position: relative; width: min(100%, 500px); margin: 0 auto; }
-    .hero-preview img { width: 100%; border-radius: 32px; box-shadow: 0 34px 100px rgba(1, 10, 40, 0.35); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+    .section-title { color: #151b30; }
+    .section-subtitle { color: #5f6371; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 28px; }
     .hero-actions a { display: inline-flex; align-items: center; justify-content: center; min-width: 160px; padding: 16px 24px; border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
     .hero-actions a.primary { background: #7c5dff; color: #fff; box-shadow: 0 18px 45px rgba(124, 93, 255, 0.28); }
     .hero-actions a.secondary { background: rgba(255,255,255,0.18); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
     .hero-actions a:hover { transform: translateY(-2px); }
-    .page-section { padding: 48px 0; }
-    .page-section:nth-of-type(odd) { background: #fff; }
+    .hero-preview { display: none; }
     .section-grid { display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .feature-card { background: #f7f8fb; border: 1px solid rgba(105, 91, 255, 0.12); border-radius: 24px; padding: 24px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; }
-    .feature-card strong { font-size: 1rem; color: #332e82; margin-bottom: 10px; display: block; }
-    .feature-card p { color: #5f6371; line-height: 1.8; margin: 0; }
-    .screenshot-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .screenshot-grid img { width: 100%; border-radius: 24px; display: block; }
-    .download-card { display: grid; gap: 24px; grid-template-columns: 1.3fr 0.95fr; align-items: center; padding: 28px; border-radius: 28px; background: linear-gradient(180deg, rgba(72, 56, 255, 0.12), rgba(82, 185, 255, 0.08)); border: 1px solid rgba(72, 56, 255, 0.14); }
-    .download-card .download-info h2 { margin: 0 0 14px; font-size: 1.65rem; }
-    .download-card .download-info p { margin: 0; color: #424b6a; line-height: 1.8; }
+    .feature-card { background: #ffffff; border: 1px solid rgba(105, 91, 255, 0.18); border-radius: 24px; padding: 24px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+    .feature-card strong { font-size: 1.1rem; color: #1a1a2e; margin-bottom: 12px; display: block; }
+    .feature-card p { color: #3b4257; line-height: 1.8; margin: 0; }
+    .screenshot-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: center; }
+    .screenshot-grid img { width: 100%; max-width: 460px; border-radius: 24px; display: block; margin: 0 auto; }
+    .download-card { display: grid; gap: 24px; grid-template-columns: 1.3fr 0.95fr; align-items: center; padding: 28px; border-radius: 28px; background: rgba(255,255,255,0.98); border: 1px solid rgba(124, 110, 255, 0.18); }
+    .download-card .download-info h2 { margin: 0 0 14px; font-size: 1.65rem; color: #16314d; }
+    .download-card .download-info p { margin: 0; color: #4f5871; line-height: 1.8; }
     .download-qr { display: grid; justify-items: center; gap: 16px; }
     .download-qr img { width: 140px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.08); }
     .download-qr small { color: #5f6371; }
     .feature-list { display: grid; gap: 18px; }
-    .feature-list li { display: flex; gap: 14px; align-items: flex-start; color: #424b6a; line-height: 1.7; }
+    .feature-list li { display: flex; gap: 14px; align-items: flex-start; color: #3b4257; line-height: 1.7; }
     .feature-list li::before { content: '✓'; color: #5f3fe8; font-weight: 700; margin-top: 3px; }
-    .page-footer { padding: 36px 0 64px; text-align: center; color: #6c7284; font-size: 0.95rem; }
+    .page-footer { padding: 36px 0 64px; text-align: center; background: #f4f6fb; color: #5f6778; font-size: 0.95rem; }
     @media (max-width: 900px) {
       .page-hero .hero-inner, .section-grid, .download-card { grid-template-columns: 1fr; }
       .hero-meta { justify-content: start; }
@@ -78,11 +77,11 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <div>
-          <span class="hero-badge"><img src="../assets/xiaoguanai/icon.png" alt="销冠AI助手图标" width="24" height="24">销冠AI助手</span>
-          <h1>大海报视觉，打造销冠销售协作中台</h1>
-          <p>销冠AI助手让主播与销售团队高效分享客户、协同跟进、AI分析客户与智能生成沟通文案，同时支持高阶定制，助力团队业绩升级。</p>
+          <span class="hero-badge"><img src="../assets/xiaoguanai/icon.png" alt="销冠AI助手图标" width="48" height="48"></span>
+          <h1>销冠AI助手</h1>
+          <p>让主播与销售团队高效分享客户、协同跟进、AI分析客户与智能生成沟通文案，同时支持高阶定制，助力团队业绩升级。</p>
           <div class="hero-actions">
-            <a href="assets/xiaoguanai/xiaoguanai.apk" class="primary" download>立即下载</a>
+            <a href="../assets/xiaoguanai/xiaoguanai.apk" class="primary" download>立即下载</a>
             <a href="#features" class="secondary">查看功能</a>
           </div>
           <div class="hero-meta">
@@ -91,9 +90,6 @@
             <span>AI分析</span>
             <span>高阶定制</span>
           </div>
-        </div>
-        <div class="hero-preview">
-        
         </div>
       </div>
     </section>
@@ -162,7 +158,7 @@
         <div class="section-header">
           <span class="section-tag">定制优势</span>
           <h2 class="section-title">AI高阶定制，让销冠更进一步</h2>
-          <p class="section-subtitle">为销售团队提供专属定制能力，支持客户标签、沟通风格、销售策略与专属分析模型的深度定制。</p>
+          <p class="section-subtitle">为销售团队提供专属定制能力，支持数据补充，沟通风格、销售策略与专属分析模型的深度定制。</p>
         </div>
         <ul class="feature-list">
           <li>专属AI模型配置：适配团队销售风格与行业需求。</li>
